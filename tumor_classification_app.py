@@ -6,7 +6,7 @@ from PIL import Image
 # -------------------------------
 # Load the trained CNN model
 # -------------------------------
-model = load_model('model/brain_tumor_classifier.h5')
+model = load_model('model/brain_tumor_Classifier.h5')
 
 # Define class labels
 class_names = ['glioma', 'meningioma', 'no_tumor', 'pituitary']
