@@ -3,43 +3,34 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image
 
-# -------------------------------
-# Load the trained CNN model
-# -------------------------------
+# Load the trained model
 model = load_model('model/brain_tumor_Classifier.h5')
-
-# Define class labels
 class_names = ['glioma', 'meningioma', 'no_tumor', 'pituitary']
 
-# -------------------------------
-# Image preprocessing
-# -------------------------------
+# Preprocessing function
 def preprocess_image(image: Image.Image) -> np.ndarray:
-    image = image.convert('RGB')                  # Ensure 3 color channels
-    image = image.resize((128, 128))              # Resize for model input
-    image_array = np.array(image) / 255.0         # Normalize pixel values
-    return np.expand_dims(image_array, axis=0)    # Add batch dimension
+    image = image.convert('RGB')              # Convert to RGB format
+    image = image.resize((128, 128))          # Resize for model input
+    image_array = np.array(image) / 255.0     # Normalize pixel values
+    return np.expand_dims(image_array, axis=0)  # Add batch dimension
 
-# -------------------------------
-# Streamlit UI
-# -------------------------------
+# Streamlit UI configuration
 st.set_page_config(page_title="Brain Tumor Classifier", layout="centered")
 st.title("🧠 Brain Tumor Classification with CNN")
 st.write("Upload an MRI image to classify the tumor type.")
 
-# Upload MRI file
+# File uploader
 uploaded_file = st.file_uploader("Choose an MRI image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     try:
-        # Load and display the image
         image = Image.open(uploaded_file)
 
-        # Optional: Restrict file size to 5MB
+        # Optional: Warn if file size exceeds limit (you can remove this check)
         if uploaded_file.size > 5 * 1024 * 1024:
             st.warning("⚠️ File too large. Please upload an image smaller than 5MB.")
         else:
-            st.image(image, caption="Uploaded Image", use_container_width=True)
+            st.image(image, caption="Uploaded Image")  # ✅ Compatible line
 
             # Preprocess and predict
             processed_image = preprocess_image(image)
@@ -48,7 +39,7 @@ if uploaded_file is not None:
             predicted_class = class_names[np.argmax(prediction)]
             confidence = np.max(prediction)
 
-            # Show result
+            # Display prediction
             st.success(f"🧪 Prediction: **{predicted_class.upper()}**")
             st.info(f"📊 Confidence: {confidence * 100:.2f}%")
 
