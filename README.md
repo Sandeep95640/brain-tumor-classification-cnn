@@ -12,6 +12,7 @@ It also includes a **Streamlit web app** where users can upload an MRI image and
 
 ## 📁 Project Contents
 
+```
 BrainTumorClassificationUsingCNN/
 ├── Training/ # Training images
 ├── Testing/ # Testing images
@@ -20,6 +21,7 @@ BrainTumorClassificationUsingCNN/
 ├── tumor_classification_app.py # Streamlit app
 ├── requirements.txt # Required libraries
 
+```
 
 ---
 
