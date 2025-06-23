@@ -5,7 +5,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 
 # Load model and label encoder
-model = load_model('model/brain_tumor_classifier.h5')
+model = load_model('model/brain_tumor_Classifier.h5')
 class_names = ['glioma', 'meningioma', 'no_tumor', 'pituitary']
 
 # Image preprocessing function
