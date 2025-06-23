@@ -14,12 +14,13 @@ It also includes a **Streamlit web app** where users can upload an MRI image and
 
 ```
 BrainTumorClassificationUsingCNN/
-├── Training/ # Training images
-├── Testing/ # Testing images
-├── model/ # Contains the trained model (.h5)
-├── BrainTumorClassification.ipynb # Notebook for training the CNN
-├── tumor_classification_app.py # Streamlit app
-├── requirements.txt # Required libraries
+├── Training/ # Folder containing training MRI images organized by class
+├── Testing/ # Folder containing testing MRI images organized by class
+├── model/
+│ └── brain_tumor_Classifier.h5 # Trained CNN model saved in HDF5 format
+├── BrainTumorClassification.ipynb # Jupyter Notebook for loading data, building, training, and evaluating the CNN
+├── tumor_classification_app.py # Streamlit app to upload MRI images and get predictions
+├── requirements.txt # List of all required Python libraries with versions
 
 ```
 
