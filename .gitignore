@@ -7,3 +7,4 @@ tf310_env/
 # Ignore system-specific files
 *.DS_Store
 Thumbs.db
+"tf310_env/" 
