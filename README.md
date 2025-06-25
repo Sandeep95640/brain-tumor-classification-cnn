@@ -7,6 +7,7 @@ This project uses a Convolutional Neural Network (CNN) to classify brain MRI ima
 - **No Tumor**
 
 It also includes a **Streamlit web app** where users can upload an MRI image and get a prediction.
+https://brain-tumor-classification-cnn.streamlit.app/
 
 ---
 
